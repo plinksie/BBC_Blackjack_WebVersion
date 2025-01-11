@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Game Result</title>
+  </head>
+  <body>
+    <h1>Game Over</h1>
+    <p>Your Hand: {{ player_hand }} (Score: {{ player_score }})</p>
+    <p>Dealer's Hand: {{ dealer_hand }} (Score: {{ dealer_score }})</p>
+    <h2>
+      {% if result == "win" %} You Win! {% elif result == "tie" %} It's a Tie!
+      {% else %} You Lose. {% endif %}
+    </h2>
+    <a href="/">Play Again</a>
+  </body>
+</html>

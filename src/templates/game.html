@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blackjack</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: white;
+        color: black;
+      }
+      .cards img {
+        width: 100px;
+        margin: 5px;
+      }
+      button {
+        padding: 10px 20px;
+        margin: 10px;
+        font-size: 16px;
+        border: 1px solid black;
+        background-color: white;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: black;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Blackjack</h1>
+    <div>
+      <h2>Your Cards</h2>
+      <div class="cards" id="player-cards">
+        {% for card in player_cards %}
+        <img src="{{ card.image }}" alt="{{ card.code }}" />
+        {% endfor %}
+      </div>
+      <h3 id="player-score">Score: {{ player_score }}</h3>
+    </div>
+    <div>
+      <button id="hit">Hit</button>
+      <button id="stand">Stand</button>
+    </div>
+    <div id="result" style="margin-top: 20px"></div>
+
+    <script>
+      const playerCards = document.getElementById("player-cards");
+      const playerScore = document.getElementById("player-score");
+      const resultDiv = document.getElementById("result");
+
+      document.getElementById("hit").addEventListener("click", async () => {
+        const response = await fetch("/draw", { method: "POST" });
+        const data = await response.json();
+
+        if (data.error) {
+          alert(data.error);
+          return;
+        }
+
+        // Add card image
+        const img = document.createElement("img");
+        img.src = data.card.image;
+        playerCards.appendChild(img);
+
+        // Update score
+        playerScore.textContent = `Score: ${data.score}`;
+
+        // Check if player is bust
+        if (data.is_bust) {
+          resultDiv.innerHTML = "<h2>You went bust! Dealer wins.</h2>";
+          document.getElementById("hit").disabled = true;
+          document.getElementById("stand").disabled = true;
+        }
+      });
+
+      document.getElementById("stand").addEventListener("click", async () => {
+        const response = await fetch("/stand", { method: "POST" });
+        const data = await response.json();
+
+        if (data.error) {
+          alert(data.error);
+          return;
+        }
+
+        // Show dealer cards and winner
+        resultDiv.innerHTML = `
+                <h2>Dealer's Cards</h2>
+                ${data.dealer_cards
+                  .map((card) => `<img src="${card.image}" />`)
+                  .join("")}
+                <h3>Dealer's Score: ${data.dealer_score}</h3>
+                <h2>${data.winner}</h2>
+            `;
+
+        document.getElementById("hit").disabled = true;
+        document.getElementById("stand").disabled = true;
+      });
+    </script>
+  </body>
+</html>
