@@ -25,20 +25,21 @@ The suit of the card does not matter.
 ✅ Fulfilled: The calculate_score() method automatically adjusts Ace values based on the total hand score, which mimics the player’s decision.
 
 ## Rules of Blackjack:
+
 Welcome to Blackjack, the timeless card game of strategy and luck! Here’s how you can play my version of the game:
 
 🃏 Rules of the Game
 
-	1.	The goal is to get a hand as close to 21 points as possible without going over.
-	2.	Each card has a point value:
-	•	Number cards (2-10): Face value
-	•	Face cards (Jack, Queen, King): 10 points each
-	•	Ace: 1 or 11 points (whichever benefits the player)
-	3.	You are initially dealt two cards.
-	4.	Choose whether to:
-	•	Hit: Draw another card to increase your hand total.
-	•	Stand: Keep your current hand and end your turn.
-	5.	If your hand exceeds 21 points, you’re bust, and you lose the round.
+    1.	The goal is to get a hand as close to 21 points as possible without going over.
+    2.	Each card has a point value:
+    •	Number cards (2-10): Face value
+    •	Face cards (Jack, Queen, King): 10 points each
+    •	Ace: 1 or 11 points (whichever benefits the player)
+    3.	You are initially dealt two cards.
+    4.	Choose whether to:
+    •	Hit: Draw another card to increase your hand total.
+    •	Stand: Keep your current hand and end your turn.
+    5.	If your hand exceeds 21 points, you’re bust, and you lose the round.
 
 (Full description with gameplay variations can be found at https://en.wikipedia.org/wiki/Blackjack.)
 
@@ -46,7 +47,6 @@ Welcome to Blackjack, the timeless card game of strategy and luck! Here’s how 
   <img src="src/Images/The-Cardsharps.png" alt="The Cardsharps by Caravaggio (c.1594)" width="300">
   <figcaption>The Cardsharps by Caravaggio (c.1594)</figcaption>
 </figure>
-
 
 ## 📖 About
 
@@ -64,28 +64,31 @@ This program focuses on simulating key aspects of Blackjack, including:
 - Virtual environment set up.
 
 ### Setup
+
 1. **Clone the repository**:
 
- ```bash
- git clone https://github.com/plinksie/BBC_Blackjack_Task.git
- cd BBC_Blackjack_Task
+````bash
+git clone https://github.com/plinksie/BBC_Blackjack_Task.git
+cd BBC_Blackjack_Task
 
 2. **Set up a virtual environment**:
-  ```bash
-  python3 -m venv venv
-  source venv/bin/activate
-  pip install -r requirements.txt
-  ```
+ ```bash
+ python3 -m venv venv
+ source venv/bin/activate
+ pip install -r requirements.txt
+````
 
 3. **Run the game**:
-  ```bash
-  python3 src/blackjack.py
-  ```
+
+```bash
+python3 src/blackjack.py
+```
 
 4. **Run the tests**:
-  ```bash
-  python3 -m unittest discover test
-  ```
+
+```bash
+python3 -m unittest discover test
+```
 
 ---
 
@@ -101,32 +104,32 @@ This program focuses on simulating key aspects of Blackjack, including:
 
 ## 🕹️ How to Play My Game
 
-1.	Start the Game:
-•	Open a terminal in the project directory.
-•	Run the game using: python3 src/blackjack.py
+1. Start the Game:
+   • Open a terminal in the project directory.
+   • Run the game using: python3 src/blackjack.py
 
-2.	Gameplay:
-•	You’ll be greeted with a message welcoming you to Blackjack!
-•	The game will:
-•	Deal two cards to the player and the dealer.
-•	Display your initial hand and points.
-•	Follow the on-screen prompts to either:
-•	Type hit to draw another card.
-•	Type stand to finish your turn.
-3.	Outcome:
-•	The dealer will then play their hand according to standard rules:
-•	The dealer must hit if their score is below 17.
-•	The dealer must stand if their score is 17 or higher.
-•	The game will compare scores and announce the winner:
-•	Player wins if their score is closer to 21 than the dealer’s.
-•	Dealer wins if their score is closer to 21 or the player goes bust.
-•	It’s a tie if both scores are the same.
+2. Gameplay:
+   • You’ll be greeted with a message welcoming you to Blackjack!
+   • The game will:
+   • Deal two cards to the player and the dealer.
+   • Display your initial hand and points.
+   • Follow the on-screen prompts to either:
+   • Type hit to draw another card.
+   • Type stand to finish your turn.
+3. Outcome:
+   • The dealer will then play their hand according to standard rules:
+   • The dealer must hit if their score is below 17.
+   • The dealer must stand if their score is 17 or higher.
+   • The game will compare scores and announce the winner:
+   • Player wins if their score is closer to 21 than the dealer’s.
+   • Dealer wins if their score is closer to 21 or the player goes bust.
+   • It’s a tie if both scores are the same.
 
 🏆 Features of the Game
 
-•	Interactive Gameplay: You can make real-time decisions with hit and stand.
-•	Winner Determination: The game automatically compares scores and announces the result.
-•	Aces Logic: Aces are handled dynamically as 1 or 11 points based on the player’s hand.
+• Interactive Gameplay: You can make real-time decisions with hit and stand.
+• Winner Determination: The game automatically compares scores and announces the result.
+• Aces Logic: Aces are handled dynamically as 1 or 11 points based on the player’s hand.
 
 Good luck, and may the best hand win! ✨
 
@@ -134,7 +137,6 @@ Good luck, and may the best hand win! ✨
   <img src="src/Images/Ace-of-Clubs.png" alt="Ace of Clubs by Georges de la Tour (c.1634)" width="300">
   <figcaption>Ace of Clubs by Georges de la Tour (c.1634)</figcaption>
 </figure>
-
 
 ## 👋 About Me
 
@@ -145,6 +147,7 @@ Hi, I’m Paulina, and I’m thrilled to be applying for the BBC's Software Engi
 - **Passion for Technology and Storytelling**: As a fan of the BBC’s incredible storytelling and credibility, I’m inspired to bring technology and creativity together to enhance global user experiences.
 
 ### What I Loved About This Task
+
 I particularly enjoyed how this task allowed me to explore **Object-Oriented Design** and **TDD principles** while creating something fun and interactive. It highlights the beauty of breaking problems down into smaller, testable components, a skill I look forward to applying on a larger scale at the BBC.
 
 I’d be honored to contribute my creativity, technical skills, and passion for people-focused solutions to the BBC's digital innovations.
@@ -154,9 +157,9 @@ I’d be honored to contribute my creativity, technical skills, and passion for 
 ## 🚀 Future Enhancements (Please note I will likely attach a link to another version of this where I can create a more interactive version as another extended submission)
 
 Given more time, I’d love to add:
+
 - **Simulated Dealer Logic**: Automating dealer moves to create a more dynamic game experience.
 - **Interactive Player Input**: Allowing players to make in-game choices (e.g., Hit or Stand).
 - **GUI Interface**: Transforming this into a fully interactive desktop app.
 
 Thank you for reviewing my submission!Looking forward to speaking with you in the next stage! 🎶
-
