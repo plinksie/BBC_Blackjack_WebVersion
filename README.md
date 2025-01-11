@@ -1,6 +1,72 @@
-# 🎉 BBC Blackjack Task 🎉
+# 🃏 BBC Blackjack Web Version 🃏
 
-Welcome to my implementation of the BBC's Software Engineering Graduate Scheme tech test! This project demonstrates my ability to write clean, test-driven Python code while applying Object-Oriented Programming principles. 🃏
+Welcome to the **Web Version** of my Blackjack project for the BBC's Software Engineering tech test! This version builds upon the previous **console-based implementation** by introducing an interactive web interface using Flask, providing a playable experience via a web browser.
+
+---
+
+## 🚀 Key Enhancements in This Version
+
+### 1. **Interactive Web Interface**
+
+- **Flask Integration**: The game is now playable through a web browser, leveraging the Flask framework for routing and rendering.
+- **Dynamic HTML Pages**: Instead of console output, players interact with dynamically rendered HTML templates.
+
+### 2. **Player-Friendly Design**
+
+- **Minimalist Aesthetic**: The UI features:
+  - A **white background** with clean, modern styling.
+  - Black text for readability.
+  - A tasteful, user-focused design.
+- **Custom Card Graphics**: The player’s and dealer’s cards are visually displayed in a clean, modern style (sourced from free APIs or local placeholders).
+
+### 3. **Game Features Expanded**
+
+- **Display of Player’s and Dealer’s Hands**: Cards and scores are dynamically updated on the browser interface.
+- **Interactive Gameplay**:
+  - Players can now click buttons to `Hit` or `Stand`.
+  - The browser immediately updates the displayed game state.
+- **Multiple Game States**:
+  - `Game Over` Screen: Displays whether the player has won, lost, or tied.
+  - Separate dealer and player phases, mimicking real Blackjack rules.
+
+### 4. **Codebase Improvements**
+
+- **Separation of Concerns**:
+  - HTML templates (stored in a `templates` folder) are used to handle the UI.
+  - Core game logic remains modular and testable within Python classes.
+- **Readability and Scalability**: The project’s structure now separates backend logic, web application routes, and front-end templates for easier scalability and maintenance.
+
+### 5. **Ease of Access**
+
+- **Localhost Setup**: Players can launch the game locally with minimal setup, using the `Flask` development server.
+
+---
+
+## 🎮 How to Play
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/plinksie/BBC_Blackjack_WebVersion.git
+   cd BBC_Blackjack_WebVersion
+
+   ```
+
+2. Set up a virtual environment and install dependencies: (Add the following to the terminal)
+   python3 -m venv venv
+   source venv/bin/activate
+   pip install -r requirements.txt
+
+3. Run the application:(Add the following to the terminal)
+   python src/app.py
+
+4. Open the game in your browser:
+   • Navigate to http://127.0.0.1:5000.
+
+5. Enjoy the interactive gameplay:
+   • Click Start Game to begin.
+   • Choose Hit to draw another card or Stand to end your turn.
+   • See the results on the final Result page.
 
 ## 📖 The brief given for the task:
 
@@ -56,42 +122,6 @@ This program focuses on simulating key aspects of Blackjack, including:
 - Calculating the score of a Blackjack hand.
 - Using modern Python development practices, such as object-oriented design and unit testing.
 
-## 🚀 How to Run
-
-### Prerequisites
-
-- Python 3.8 or higher installed.
-- Virtual environment set up.
-
-### Setup
-
-1. **Clone the repository**:
-
-````bash
-git clone https://github.com/plinksie/BBC_Blackjack_Task.git
-cd BBC_Blackjack_Task
-
-2. **Set up a virtual environment**:
- ```bash
- python3 -m venv venv
- source venv/bin/activate
- pip install -r requirements.txt
-````
-
-3. **Run the game**:
-
-```bash
-python3 src/blackjack.py
-```
-
-4. **Run the tests**:
-
-```bash
-python3 -m unittest discover test
-```
-
----
-
 ## 🃏 Features
 
 - **52-card Deck**: Fully modeled with ranks and suits.
@@ -116,6 +146,7 @@ python3 -m unittest discover test
    • Follow the on-screen prompts to either:
    • Type hit to draw another card.
    • Type stand to finish your turn.
+
 3. Outcome:
    • The dealer will then play their hand according to standard rules:
    • The dealer must hit if their score is below 17.
@@ -140,7 +171,7 @@ Good luck, and may the best hand win! ✨
 
 ## 👋 About Me
 
-Hi, I’m Paulina, and I’m thrilled to be applying for the BBC's Software Engineering Graduate Scheme! Here’s why I believe I would be a great fit:
+Hi, I’m Paulina, and I’m thrilled to be applying for the BBC's Software Engineering Scheme! Here’s why I believe I would be a great fit:
 
 - **Creative Problem-Solving**: My background includes architecture, design, and full-stack web development, equipping me with an ability to craft innovative, user-friendly solutions.
 - **Team Collaboration**: I excel in collaborative environments, demonstrated by my experience leading and working within diverse teams, including at globally renowned organisations like SMC, Sandboxaq and Starbucks.
@@ -154,12 +185,11 @@ I’d be honored to contribute my creativity, technical skills, and passion for 
 
 ---
 
-## 🚀 Future Enhancements (Please note I will likely attach a link to another version of this where I can create a more interactive version as another extended submission)
+## 🚀 Future Enhancements
 
-Given more time, I’d love to add:
-
-- **Simulated Dealer Logic**: Automating dealer moves to create a more dynamic game experience.
-- **Interactive Player Input**: Allowing players to make in-game choices (e.g., Hit or Stand).
-- **GUI Interface**: Transforming this into a fully interactive desktop app.
+While this version has focused on creating a playable, minimalist experience, future enhancements could include:
+• Support for multiple players.
+• Custom rule variations (e.g., doubling down, splitting hands).
+• Scalable hosting for deployment on platforms like Heroku or AWS.
 
 Thank you for reviewing my submission!Looking forward to speaking with you in the next stage! 🎶

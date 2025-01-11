@@ -1,20 +1,65 @@
 from deck import Deck
 
-class Hand:
+class BlackjackGame:
     def __init__(self):
-        self.cards = []
+        self.deck = Deck()
+        self.deck.shuffle()
+        self.player_hand = []
+        self.dealer_hand = []
 
-    def add_card(self, card):
-        """Add a card to the hand."""
-        self.cards.append(card)
+    def start_game(self):
+        """Start a new game by dealing initial cards to player and dealer."""
+        self.player_hand = [self.deck.deal_card(), self.deck.deal_card()]
+        self.dealer_hand = [self.deck.deal_card(), self.deck.deal_card()]
 
-    def calculate_score(self):
-        """Calculate the Blackjack score of the hand."""
+    def get_player_cards(self):
+        """Return the player's cards."""
+        return self.player_hand
+
+    def get_player_score(self):
+        """Calculate and return the player's score."""
+        return self.calculate_score(self.player_hand)
+
+    def player_draw_card(self):
+        """Add a card to the player's hand."""
+        card = self.deck.deal_card()
+        self.player_hand.append(card)
+        return card
+
+    def is_player_bust(self):
+        """Check if the player is bust."""
+        return self.calculate_score(self.player_hand) > 21
+
+    def get_dealer_hand(self, reveal=False):
+        """Return the dealer's cards. Hide the second card if not revealed."""
+        if reveal:
+            return self.dealer_hand
+        return [self.dealer_hand[0], "[Hidden]"]
+
+    def dealer_play(self):
+        """Simulate the dealer's turn."""
+        while self.calculate_score(self.dealer_hand) < 17:
+            self.dealer_hand.append(self.deck.deal_card())
+        dealer_score = self.calculate_score(self.dealer_hand)
+        player_score = self.calculate_score(self.player_hand)
+
+        if dealer_score > 21 or player_score > dealer_score:
+            winner = "You win!"
+        elif player_score == dealer_score:
+            winner = "It's a tie!"
+        else:
+            winner = "Dealer wins."
+
+        return {"dealer_cards": self.dealer_hand, "dealer_score": dealer_score, "winner": winner}
+
+    @staticmethod
+    def calculate_score(hand):
+        """Calculate the Blackjack score of a hand."""
         score = 0
         aces = 0
 
-        for card in self.cards:
-            rank = card.split(" ")[0]  # Extract rank from card string
+        for card in hand:
+            rank = card.split(" ")[0]
             if rank.isdigit():
                 score += int(rank)
             elif rank in ["Jack", "Queen", "King"]:
@@ -23,64 +68,8 @@ class Hand:
                 score += 11
                 aces += 1
 
-        # Adjust for Aces if score exceeds 21
         while score > 21 and aces:
             score -= 10
             aces -= 1
 
         return score
-
-
-def play():
-    print("Welcome to Blackjack!")
-    deck = Deck()
-    deck.shuffle()
-
-    # Player setup
-    player_hand = Hand()
-    for _ in range(2):  # Deal initial 2 cards to player
-        player_hand.add_card(deck.deal_card())
-
-    # Dealer setup
-    dealer_hand = Hand()
-    for _ in range(2):  # Deal initial 2 cards to dealer
-        dealer_hand.add_card(deck.deal_card())
-
-    # Player's turn
-    while True:
-        print(f"Your hand: {player_hand.cards}, Score: {player_hand.calculate_score()}")
-        if player_hand.calculate_score() > 21:
-            print("Bust! You lose.")
-            return
-
-        action = input("Do you want to 'hit' or 'stand'? ").lower()
-        if action == 'hit':
-            player_hand.add_card(deck.deal_card())
-        elif action == 'stand':
-            break
-        else:
-            print("Invalid input. Please type 'hit' or 'stand'.")
-
-    # Dealer's turn
-    print(f"\nDealer's hand: {dealer_hand.cards[0]}, [Hidden]")
-    while dealer_hand.calculate_score() < 17:
-        dealer_hand.add_card(deck.deal_card())
-
-    print(f"Dealer's final hand: {dealer_hand.cards}, Score: {dealer_hand.calculate_score()}")
-
-    # Determine the winner
-    player_score = player_hand.calculate_score()
-    dealer_score = dealer_hand.calculate_score()
-
-    if dealer_score > 21:
-        print("Dealer busts! You win!")
-    elif player_score > dealer_score:
-        print("You win!")
-    elif player_score == dealer_score:
-        print("It's a tie!")
-    else:
-        print("Dealer wins!")
-
-
-if __name__ == "__main__":
-    play()

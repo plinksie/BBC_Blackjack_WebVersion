@@ -32,7 +32,7 @@
     <div>
       <h2>Your Cards</h2>
       <div class="cards" id="player-cards">
-        {% for card in player_cards %}
+        {% for card in player_hand %}
         <img src="{{ card.image }}" alt="{{ card.code }}" />
         {% endfor %}
       </div>
