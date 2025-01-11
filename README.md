@@ -9,15 +9,14 @@ Welcome to the **Web Version** of my Blackjack project for the BBC's Software En
 ### 1. **Interactive Web Interface**
 
 - **Flask Integration**: The game is now playable through a web browser, leveraging the Flask framework for routing and rendering.
-- **Dynamic HTML Pages**: Instead of console output, players interact with dynamically rendered HTML templates.
+- **Dynamic HTML Pages**: Instead of console output, players interact with y rendered HTML templates.
 
 ### 2. **Player-Friendly Design**
 
 - **Minimalist Aesthetic**: The UI features:
   - A **white background** with clean, modern styling.
   - Black text for readability.
-  - A tasteful, user-focused design.
-- **Custom Card Graphics**: The player’s and dealer’s cards are visually displayed in a clean, modern style (sourced from free APIs or local placeholders).
+- **Custom Card Graphics**: The player’s and dealer’s cards are visually displayed in a clean, simple style (sourced from free APIs or local placeholders).
 
 ### 3. **Game Features Expanded**
 
